@@ -1,21 +1,25 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
-	str := "aabcd"
-	fmt.Println(isOnlyUnique(str))
+	fmt.Println(isOnlyUnique("str"))
+	fmt.Println(isOnlyUnique("abCdefAaf"))
 }
 
 func isOnlyUnique(str string) bool {
-	bytes := []byte(str)
-	m := make(map[byte]int)
+	newStr := strings.ToLower(str)
+	bytes := []byte(newStr)
+	m := make(map[byte]struct{})
 
 	for i := 0; i < len(bytes); i++ {
-		m[bytes[i]]++
-		if val, ok := m[bytes[i]]; ok && val > 1 {
+		if _, ok := m[bytes[i]]; ok {
 			return false
 		}
+		m[bytes[i]] = struct{}{}
 	}
 	return true
 }
