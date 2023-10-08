@@ -13,7 +13,6 @@ func main() {
 	//secondSolution(arr)
 	//thirdSolution(arr)
 	fourthSolution(arr)
-	// todo: fix and another ways to solve
 }
 
 // firstSolution using waitgroups

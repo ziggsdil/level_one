@@ -5,7 +5,6 @@ import (
 	"time"
 )
 
-// todo: поискать еще другие способы.
 func main() {
 	fmt.Println("start")
 	firstSleep(3)
