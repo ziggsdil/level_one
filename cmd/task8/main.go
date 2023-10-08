@@ -5,6 +5,7 @@ import (
 	"sync"
 )
 
+// todo: проверить действительно ли запись ведется конкуретно
 func main() {
 	mu := sync.Mutex{}
 	wg := &sync.WaitGroup{}
@@ -17,7 +18,6 @@ func main() {
 			defer wg.Done()
 			mu.Lock()
 			defer mu.Unlock()
-
 			m[idx] = idx * idx
 		}(i)
 	}
